@@ -3,6 +3,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EFOracle.Model
@@ -14,5 +15,7 @@ namespace EFOracle.Model
         public virtual string Name { get; set; }
 
         public virtual Region Region { get; set; }
+
+        public virtual IList<City> Cities { get; set; }
     }
 }

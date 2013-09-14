@@ -52,11 +52,20 @@
   <ItemGroup>
     <Compile Include="Data\EFOracleContext.cs" />
     <Compile Include="Data\EFOracleInitialization.cs" />
-    <Compile Include="Migrations\201308160649214_test.cs" />
-    <Compile Include="Migrations\201308160649214_test.Designer.cs">
-      <DependentUpon>201308160649214_test.cs</DependentUpon>
+    <Compile Include="Migrations\201309140716495_InitialCreate.cs" />
+    <Compile Include="Migrations\201309140716495_InitialCreate.Designer.cs">
+      <DependentUpon>201309140716495_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309140736012_CityAdded.cs" />
+    <Compile Include="Migrations\201309140736012_CityAdded.Designer.cs">
+      <DependentUpon>201309140736012_CityAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309140819031_CityAddedPopulation.cs" />
+    <Compile Include="Migrations\201309140819031_CityAddedPopulation.Designer.cs">
+      <DependentUpon>201309140819031_CityAddedPopulation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\City.cs" />
     <Compile Include="Model\Region.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Program.cs" />
@@ -67,8 +76,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201308160649214_test.resx">
-      <DependentUpon>201308160649214_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201309140716495_InitialCreate.resx">
+      <DependentUpon>201309140716495_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309140736012_CityAdded.resx">
+      <DependentUpon>201309140736012_CityAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309140819031_CityAddedPopulation.resx">
+      <DependentUpon>201309140819031_CityAddedPopulation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

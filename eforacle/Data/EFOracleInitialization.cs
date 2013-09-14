@@ -1,7 +1,7 @@
 ﻿// <copyright file="EFOracleInitialization.cs" company="Translation Centre for the Bodies of the European Union">
 //  Copyright (c) 2013 All Rights Reserved
 // </copyright>
-  
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -36,7 +36,7 @@ namespace EFOracle.Data
             };
             regions.ForEach(x => context.Region.Add(x));
 
-            new List<Country>
+            var countries = new List<Country>
             {
                 new Country
                 {
@@ -74,7 +74,48 @@ namespace EFOracle.Data
                     Name = "Israel",
                     Region = regions[2]
                 }
-            }.ForEach(x => context.Country.Add(x));
+            };
+            countries.ForEach(x => context.Country.Add(x));
+
+            new List<City>
+            {
+                new City
+                {
+                    id = 0,
+                    Name = "Brussels",
+                    Country = countries[0]
+                },
+                new City
+                {
+                    id = 1,
+                    Name = "Paris",
+                    Country = countries[1]
+                },
+                new City
+                {
+                    id = 2,
+                    Name = "Berlin",
+                    Country = countries[2]
+                },
+               new City
+                {
+                    id = 3,
+                    Name = "Washington",
+                    Country = countries[3]
+                },
+               new City
+                {
+                    id = 4,
+                    Name = "Edmonton",
+                    Country = countries[4]
+                },
+                new City
+                {
+                    id = 5,
+                    Name = "Jerusalem",
+                    Country = countries[5]
+                },
+            }.ForEach(x => context.Cities.Add(x));
 
             base.Seed(context);
         }

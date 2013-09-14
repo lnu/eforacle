@@ -16,10 +16,11 @@ namespace EFOracle.Data
 
         public DbSet<Country> Country { get; set; }
 
+        public DbSet<City> Cities { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
+            //modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
 
             modelBuilder.Entity<Region>().ToTable("REGIONS", "DEMO");
             modelBuilder.Entity<Region>().Property(p => p.id).HasColumnName("ID").IsRequired();
@@ -30,7 +31,14 @@ namespace EFOracle.Data
             modelBuilder.Entity<Country>().ToTable("COUNTRIES", "DEMO");
             modelBuilder.Entity<Country>().Property(p => p.id).HasColumnName("ID").IsRequired();
             modelBuilder.Entity<Country>().Property(p => p.Name).HasColumnName("NAME").IsRequired();
+            modelBuilder.Entity<Country>().HasMany(p => p.Cities).WithRequired(i => i.Country).Map(p => p.MapKey("COUNTDY_IF"));
             modelBuilder.Entity<Country>().HasKey(p => p.id);
+
+            modelBuilder.Entity<City>().ToTable("CITIES", "DEMO");
+            modelBuilder.Entity<City>().Property(p => p.id).HasColumnName("ID").IsRequired();
+            modelBuilder.Entity<City>().Property(p => p.Name).HasColumnName("NAME").IsRequired();
+            modelBuilder.Entity<City>().Property(p => p.Population).HasColumnName("POPULATION");
+            modelBuilder.Entity<City>().HasKey(p => p.id);
         }
     }
 }
